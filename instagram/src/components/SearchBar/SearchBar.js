@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import './SearchBar.css'
-import PropTypes from 'prop-types';
 
 function SearchBar(props) {
     console.log(props);
@@ -13,7 +12,7 @@ function SearchBar(props) {
                     <img className='insta-logo' src='../assets/iglogo.png' alt='Instagram Logo Image' />
                 </div>
 
-                <form>
+                <form className='search'>
                     Search: <input type='text' />
                 </form>
 

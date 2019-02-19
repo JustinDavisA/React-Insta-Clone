@@ -5,7 +5,7 @@ function CommentSection(props) {
     console.log(props);
     return (
         <>
-            {props.po}
+               
         </>
     );
 }

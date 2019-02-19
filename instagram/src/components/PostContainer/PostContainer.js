@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import './PostContainer.css'
+import './PostContainer.css';
+import CommentSection from '../CommentSection/CommentSection';
 
 function PostContainer(props) {
     console.log(props);
@@ -13,25 +14,32 @@ function PostContainer(props) {
                     <h2>{post.username}</h2>
                 </div>
 
-                <div>
+                <div className='post-image'>
                     <img src={post.imageUrl} />
                 </div>
 
-                <div>
+                <div className='post-icons'>
                     <img src='../' className='heart-icon' />
                     <img src='../' className='comment-icon' />
                 </div>
 
-                <h2>{post.likes} <strong>likes</strong></h2>
+                <h2 className='post-likes'>
+                    {post.likes} <strong>likes</strong>
+                </h2>
 
-                {/* <CommentSection /> */}
-                {post.comments.map((comment, i ) => (
-                    <Fragment key={i}>
-                        <p><strong>{comment.username} </strong>{comment.text}</p>       
-                    </Fragment>
-                ))}
+                <div className='post-comments'>
+                    {post.comments.map((comment, i ) => (
+                        <Fragment key={i}>
+                            <p><strong>{comment.username} </strong>{comment.text}</p>      
+                        </Fragment>
+                    ))}
+                </div>
 
-                <div>
+                <div className='post-date'>
+                    <h3>{post.timestamp}</h3>
+                </div>
+
+                <div className='post-new-comment'>
                     <input></input>
                     <strong>...</strong>
                 </div>

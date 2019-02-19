@@ -1,5 +1,14 @@
 
+.post-container { 
+    border: 1px solid black;
+}
+
 .post-head {
     display: flex;
     flex-direction: row;
+    max-height: 50px;
+}
+
+.post-image {
+    margin: 0 auto;
 }
