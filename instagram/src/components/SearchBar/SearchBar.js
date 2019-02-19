@@ -6,17 +6,17 @@ function SearchBar(props) {
     return (
         <>
             <div className='search-container'>
-                <div>
-                    <img className='camera-logo' src='' alt='Camera Image' />
+                <div className='head-left'>
+                    <img className='camera-logo' src='./assets/iglogo.png' alt='Camera Image' />
                     <div className='vert-line'></div>
-                    <img className='insta-logo' src='' alt='Instagram Logo Image' />
+                    <img className='insta-logo' src='./assets/iglogo.png' alt='Instagram Logo Image' />
                 </div>
 
                 <form>
                     Search: <input type='text' />
                 </form>
 
-                <div>
+                <div className='head-right'>
                     <img className='compass-logo' src='' />
                     <img className='heart-logo' src='' />
                     <img className='profile-logo' src='' />
