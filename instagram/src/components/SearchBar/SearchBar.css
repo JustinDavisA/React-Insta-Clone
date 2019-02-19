@@ -1,11 +1,16 @@
 
-
-.search-container {
+.head-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.vert-line {
-    border: 1px solid black;
+.head-left {
+    display: flex;
+    flex-direction: row;
+}
+
+.head-right {
+    display: flex;
+    flex-direction: row;
 }

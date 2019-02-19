@@ -14,9 +14,10 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <div className="app-container">
         <SearchBar />
-        <div className='posts'>
+        
+        <div className='posts-container'>
           <PostContainer posts = {this.state.posts} />
         </div>
       </div>
