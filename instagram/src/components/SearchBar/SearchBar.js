@@ -1,9 +1,12 @@
+// React Imports
 import React from 'react';
+// Image Imports
 import IGLogo from '../../assets/iglogo.png'
 import CameraLogo from '../../assets/camera.svg'
 import HeartLogo from '../../assets/heart.svg'
 import CompassLogo from '../../assets/compass.png'
 import UserLogo from '../../assets/user.png'
+// CSS Imports
 import './SearchBar.css'
 
 class SearchBar extends React.Component {
@@ -15,8 +18,7 @@ class SearchBar extends React.Component {
     }
 
     handleSearchChange = e => {
-        this.setState({ searchText: e.target.value },
-        () => {this.props.filterSearch(e, this.state.searchText)})
+        this.setState({ searchText: e.target.value },() => {this.props.filterSearch(e, this.state.searchText)})
     }
 
     render() {

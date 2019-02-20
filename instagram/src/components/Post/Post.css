@@ -1,0 +1,47 @@
+
+.post-container {
+    margin: 50px auto;
+    width: 650px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid lightgray;
+    border-radius: 3px;
+}
+
+.post-head {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    align-items: center;
+}
+
+.user-image {
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.post-image {
+    align-self: center;
+}
+
+.post-comment-section {
+    padding: 10px;
+}
+
+.post-new-comment {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 25px;
+    height: 35px;
+}
+
+.comment-input {
+    width: 90%;
+    border: none;
+}
+
+.comment-submit {
+    padding: 10px;
+    cursor: pointer;
+}

@@ -1,26 +1,13 @@
-// React Imports
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-// Image Imports
 import CommentLogo from '../../assets/camera.svg'
 import HeartLogo from '../../assets/heart.svg'
-// CSS Imports
 import './PostContainer.css';
-// Child Component Imports
 import CommentSection from '../CommentSection/CommentSection';
 
-class PostContainer extends React.Component {
-    constructor(props) {
-        super();
-        this.state = {
-            comments: props.posts.comments,
-            likes: props.posts.likes,
-            heart: props.posts.heart
-        }
-    } 
-
-    render() {
-        return (
+function PostContainer(props) {
+    return (
+        <>
             {props.posts.map(post => 
             <div key={post.timestamp} className='post-container'>
                 <div className='post-head'>
@@ -63,8 +50,8 @@ class PostContainer extends React.Component {
                 </div>
             </div>
             )}
-        );
-    }
+        </>
+    );
 }
 
 PostContainer.propTypes = {

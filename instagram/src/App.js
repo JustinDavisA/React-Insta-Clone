@@ -16,12 +16,30 @@ class App extends Component {
     this.setState({ posts: dummyData })
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  searchDidUpdate(prevProps) {
     if (prevProps.username !== this.props.username) {
       this.fetchUser(this.props.username);
     }
   }
   
+  heartDidUpdate(prevProps) {
+    if (prevProps.username !== this.props.username) {
+      this.fetchUser(this.props.username);
+    }
+  }
+
+  likesCounthDidUpdate(prevProps) {
+    if (prevProps.username !== this.props.username) {
+      this.fetchUser(this.props.username);
+    }
+  }
+
+  newCommentDidUpdate(prevProps) {
+    if (prevProps.username !== this.props.username) {
+      this.fetchUser(this.props.username);
+    }
+  }
+
   render() {
     return (
       <div className="app-container">
