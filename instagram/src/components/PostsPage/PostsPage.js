@@ -1,6 +1,5 @@
 // React Imports
 import React from 'react';
-import PropTypes from 'prop-types';
 // Image Imports
 import IGLogo from '../../assets/iglogo.png'
 import CameraLogo from '../../assets/camera.svg'
@@ -12,6 +11,8 @@ import './PostsPage.css';
 // Component Imports
 import PostContainer from '../PostContainer/PostContainer'
 import SearchBar from '../SearchBar/SearchBar'
+// Data Import
+import dummyData from '../../dummy-data';
 
 class PostsPage extends React.Component {
     constructor() {
@@ -20,6 +21,63 @@ class PostsPage extends React.Component {
             posts: []
         }
     }
+
+    componentDidMount() {
+        this.setState({
+            posts: dummyData.map((post, index) => (
+                { ...post, postID: index, liked: false }
+            ))
+        })
+    }
+
+    searchDidUpdate = (e, searchText) => {
+        e.preventDefault();
+        const filtered = dummyData.filter(post => searchText === post.username)
+        if (filtered.length > 0) {
+            this.setState({ postData: filtered })
+        } else {
+            this.setState({ postData: dummyData })
+        }
+    }
+
+    likeDidUpdate = (postID, newLiked) => {
+        this.setState({
+            postData: this.state.postData.map(post => {
+                if (post.postID === postID) {
+                    return { ...post, liked: newLiked }
+                }
+                return post;
+            })
+        })
+    }
+
+    likesCountDidUpdate = (postID, newLikes) => {
+        this.setState({
+            postData: this.state.postData.map(post => {
+                if (post.postID === postID) {
+                    return { ...post, likes: newLikes }
+                }
+                return post;
+            })
+        })
+    }
+
+    newCommentDidUpdate = (postID, newComments) => {
+        this.setState({
+            posts: this.state.posts.map(post => {
+                if (post.postID === postID) {
+                    return { ...post, comments: newComments }
+                }
+                return post;
+            })
+        })
+    }
+
+    clearLocalStorage = e => {
+        e.preventDefault();
+        localStorage.clear();
+        window.location.reload();
+    };
 
     render() {
         return (
