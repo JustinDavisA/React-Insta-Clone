@@ -1,13 +1,13 @@
 // React Imports
 import React from 'react';
 import PropTypes from 'prop-types';
-// Image Imports
-import CommentLogo from '../../assets/camera.svg'
-import HeartLogo from '../../assets/heart.svg'
 // CSS Imports
 import './PostContainer.css';
 // Child Component Imports
+import Post from '../Post/Post';
 import CommentSection from '../CommentSection/CommentSection';
+import Feeback from '../Feedback/Feedback';
+import CommentInput from '../CommentInput/CommentInput';
 
 class PostContainer extends React.Component {
     constructor(props) {

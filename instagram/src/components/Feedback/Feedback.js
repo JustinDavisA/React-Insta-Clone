@@ -1,9 +1,9 @@
 // React Imports
 import React from 'react';
-import './ActionBar.css'
-import emptyheart from './heart-empty.svg';
-import filledheart from './heart-filled.jpg'
-import comment from './comment.png'
+import './Feedback.css'
+import emptyheart from '../../assets/heart.svg';
+import filledheart from '../../assets/heart-filled.png'
+import comment from '../../assets/comment.png'
 
 const ActionBar = props => {
     return (

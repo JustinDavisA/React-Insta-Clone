@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // CSS Imports
 import './CommentSection.css';
 // Component Imports
-import Comment from './Comment/Comment';
+import Comment from '../Comment/Comment';
 
 const CommentSection = props => {
     return (

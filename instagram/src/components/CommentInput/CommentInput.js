@@ -1,7 +1,7 @@
 // React Imports
 import React from 'react';
 // CSS Imports
-import './Comment.css';
+import './CommentInput.css';
 
 class CommentInput extends React.Component {
     constructor() {

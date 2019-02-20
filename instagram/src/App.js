@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './reset.css';
+import './Reset.css';
 import './App.css';
 import dummyData from './dummy-data';
 import PostsPage from './components/PostsPage/PostsPage'
