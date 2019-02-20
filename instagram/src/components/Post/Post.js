@@ -30,4 +30,4 @@ Post.propTypes = {
     })
 }
 
-export default PostContainer;
+export default Post;

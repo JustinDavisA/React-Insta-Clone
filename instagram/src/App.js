@@ -30,7 +30,7 @@ class App extends Component {
     }
 }
   
-  heartDidUpdate = (postID, newLiked) => {
+  likeDidUpdate = (postID, newLiked) => {
     this.setState({
       postData: this.state.postData.map(post => {
         if (post.postID === postID) {
@@ -41,7 +41,7 @@ class App extends Component {
     })
 }
 
-  likesCounthDidUpdate = (postID, newLikes) => {
+  likesCountDidUpdate = (postID, newLikes) => {
     this.setState({
       postData: this.state.postData.map(post => {
         if (post.postID === postID) {
@@ -69,8 +69,8 @@ class App extends Component {
         <PostsPage 
           searchDidUpdate={this.searchDidUpdate}
           newCommentDidUpdate={this.newCommentDidUpdate}
-          heartDidUpdate={this.heartDidUpdate}
-          likesCounthDidUpdate={this.likesCounthDidUpdate}
+          likeDidUpdate={this.likeDidUpdate}
+          likesCountDidUpdate={this.likesCountDidUpdate}
           posts={this.state.posts}
         />
       </div>

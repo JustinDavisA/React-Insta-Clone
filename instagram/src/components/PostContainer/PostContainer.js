@@ -60,7 +60,7 @@ class PostContainer extends React.Component {
                             <strong>...</strong>
                         </div>
                     </div>
-                </div>
+                </div> 
             </div>
             )}
         );
