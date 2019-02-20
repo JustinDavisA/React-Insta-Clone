@@ -22,8 +22,8 @@ const Post = props => {
     );
 }
 
-PostContainer.propTypes = {
-    PropTypes.shape({
+Post.propTypes = {
+    posts: PropTypes.shape({
         username: PropTypes.string.isRequired,
         thumbnailUrl: PropTypes.string.isRequired,
         imageUrl: PropTypes.string.isRequired,

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import './reset.css';
 import './App.css';
 import dummyData from './dummy-data';
-import SearchBar from './components/SearchBar/SearchBar'
-import PostContainer from './components/PostContainer/PostContainer'
+import PostsPage from './components/PostsPage/PostsPage'
 
 class App extends Component {
   constructor() {
@@ -13,41 +13,66 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({ posts: dummyData })
+    this.setState({ 
+      posts: dummyData.map((post, index) => (
+        {...post, postID: index, liked: false}
+      )) 
+    })
   }
 
-  searchDidUpdate(prevProps) {
-    if (prevProps.username !== this.props.username) {
-      this.fetchUser(this.props.username);
+  searchDidUpdate = (e, searchText) => {
+    e.preventDefault();
+    const filtered = dummyData.filter(post => searchText === post.username)
+    if (filtered.length > 0) {
+      this.setState({postData: filtered})
+    } else {
+      this.setState({postData: dummyData})
     }
-  }
+}
   
-  heartDidUpdate(prevProps) {
-    if (prevProps.username !== this.props.username) {
-      this.fetchUser(this.props.username);
-    }
-  }
+  heartDidUpdate = (postID, newLiked) => {
+    this.setState({
+      postData: this.state.postData.map(post => {
+        if (post.postID === postID) {
+          return {...post, liked: newLiked}
+        }
+        return post;
+      })
+    })
+}
 
-  likesCounthDidUpdate(prevProps) {
-    if (prevProps.username !== this.props.username) {
-      this.fetchUser(this.props.username);
-    }
-  }
+  likesCounthDidUpdate = (postID, newLikes) => {
+    this.setState({
+      postData: this.state.postData.map(post => {
+        if (post.postID === postID) {
+          return {...post, likes: newLikes}
+        }
+        return post;
+      })
+    })
+}
 
-  newCommentDidUpdate(prevProps) {
-    if (prevProps.username !== this.props.username) {
-      this.fetchUser(this.props.username);
-    }
-  }
+  newCommentDidUpdate = (postID, newComments) => {
+    this.setState({
+        posts: this.state.posts.map(post => {
+        if (post.postID === postID) {
+          return {...post, comments: newComments}
+          }
+          return post;
+        })
+    })
+}
 
   render() {
     return (
-      <div className="app-container">
-        <SearchBar />
-
-        <div className='posts-container'>
-          <PostContainer posts = {this.state.posts} />
-        </div>
+      <div className="App">
+        <PostsPage 
+          searchDidUpdate={this.searchDidUpdate}
+          newCommentDidUpdate={this.newCommentDidUpdate}
+          heartDidUpdate={this.heartDidUpdate}
+          likesCounthDidUpdate={this.likesCounthDidUpdate}
+          posts={this.state.posts}
+        />
       </div>
     );
   }
