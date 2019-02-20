@@ -2,7 +2,8 @@
 .head-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    max-height: 100px;
 }
 
 .head-left {
@@ -10,7 +11,10 @@
     flex-direction: row;
 }
 
+.search {
+    align-self: center;
+}
+
 .head-right {
     display: flex;
-    flex-direction: row;
 }

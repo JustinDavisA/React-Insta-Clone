@@ -15,6 +15,12 @@ class App extends Component {
   componentDidMount() {
     this.setState({ posts: dummyData })
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.username !== this.props.username) {
+      this.fetchUser(this.props.username);
+    }
+  }
   
   render() {
     return (
