@@ -1,33 +1,66 @@
+// React Imports
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Post.css';
+// Component Imports
+import CommentSection from '../CommentSection/CommentSection';
+import Feedback from '../Feedback/Feedback';
+//import PostHeader from './PostHeader';
 
-const Post = props => {
-    return (
-        <div className='post-container'>
-            <div className='post-head'>
-                <img 
-                    width='40' 
-                    height='40' 
-                    className='user-image' 
-                    src={props.posts.thumbnailUrl} 
+class Post extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            likes: props.post.likes
+        };
+    }
+
+    incrementLike = () => {
+        let likes = this.state.likes + 1;
+        this.setState({ likes });
+    };
+
+    render() {
+        return (
+            <div>
+                <div className="post-header">
+                    <div className="post-thumb-wrapper">
+                        <img
+                            alt="post header"
+                            className="post-thumb"
+                            src={this.props.post.thumbnailUrl}
+                        />
+                    </div>
+                    <div>{this.props.post.username}</div>
+                </div>
+               
+                <div>
+                    <img
+                        alt="Post Image"
+                        className="post-image"
+                        src={this.props.post.imageUrl}
+                    />
+                </div>
+
+                <Feedback
+                    incrementLike={this.incrementLike}
+                    likes={this.state.likes}
                 />
-                <h2>{props.posts.username}</h2>
+                
+                <CommentSection
+                    postId={this.props.post.imageUrl}
+                    comments={this.props.post.comments}
+                />
             </div>
-
-            <div className='post-image'>
-                <img src={props.posts.imageUrl} />
-            </div>
-        </div>
-    );
+        );
+    }
 }
 
 Post.propTypes = {
-    posts: PropTypes.shape({
-        username: PropTypes.string.isRequired,
+    post: PropTypes.shape({
+        username: PropTypes.string,
         thumbnailUrl: PropTypes.string.isRequired,
-        imageUrl: PropTypes.string.isRequired,
+        imageUrl: PropTypes.string.isRequired
     })
-}
+};
 
 export default Post;
